@@ -9,6 +9,7 @@ Programa de consola para guardar personas (nombre y año de nacimiento) y consul
 - Los nombres se normalizan con `.title()` (por ejemplo, "keylor navas" se guarda como "Keylor Navas").
 - Si `personas.json` está dañado, el programa avisa, hace una copia de seguridad con la fecha y la hora en el nombre y empieza con una lista vacía, para no perder los datos anteriores.
 - Si no hay personas, muestra un mensaje en vez de una pantalla en blanco.
+- Eliminar persona por posición, mostrando la lista antes para elegir.
 
 ## Cómo ejecutarlo
 

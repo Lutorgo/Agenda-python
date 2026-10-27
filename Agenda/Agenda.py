@@ -48,12 +48,18 @@ def ingresar_persona(personas):
     ano = pedir_ano()
     agregar_persona(personas,nombre,ano)
 
+def eliminar_persona(personas, posicion):
+    if 1 <= posicion <= len(personas):
+        return personas.pop(posicion - 1)
+    return None
+
 personas = cargar_personas()
       
 while True:
     print("1. Agregar persona")
     print("2. Mostrar personas")
     print("3. Salir")
+    print("4. Eliminar persona")
     opcion = input("Elige la opcion:") 
 
     if opcion in ("1", "a"):
@@ -64,6 +70,21 @@ while True:
     elif opcion in ("3", "s"):
         print("Ha salido del programa")
         break
+    elif opcion in ("4", "e"):
+        if not personas:
+            print("No hay personas para eliminar")
+            continue
+        mostrar_personas(personas)
+        entrada = input("Ingresa el número de la persona a eliminar: ")
+        if not entrada.isdigit():
+            print("Debes escribir un número")
+            continue
+        eliminada = eliminar_persona(personas, int(entrada))
+        if eliminada is None:
+            print("Posición inválida, no se eliminó nada")
+        else:
+            print(f'Eliminaste a {eliminada['nombre']}')
+            guardar_personas(personas)
     else:
         print("Opcion Invalida")
 
